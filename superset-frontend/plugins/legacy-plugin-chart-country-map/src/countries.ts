@@ -42,6 +42,7 @@ import egypt from './countries/egypt.geojson';
 import el_salvador from './countries/el_salvador.geojson';
 import estonia from './countries/estonia.geojson';
 import ethiopia from './countries/ethiopia.geojson';
+import ethiopia_zones from './countries/ethiopia_zones.geojson';
 import france from './countries/france.geojson';
 import france_regions from './countries/france_regions.geojson';
 import finland from './countries/finland.geojson';
@@ -139,6 +140,7 @@ export const countries = {
   el_salvador,
   estonia,
   ethiopia,
+  ethiopia_zones,
   france,
   france_regions,
   finland,
@@ -221,13 +223,10 @@ export const countryOptions = Object.keys(countries).map(x => {
   if (x === 'france_regions') {
     return [x, 'France (regions)'];
   }
-  return [
-    x,
-    x
-      .split('_')
-      .map(e => e[0].toUpperCase() + e.slice(1))
-      .join(' '),
-  ];
+  if (x === 'ethiopia_zones') {
+    return [x, 'Ethiopia (zones)'];
+  }
+  return [x, x.split('_').map((e) => e[0].toUpperCase() + e.slice(1)).join(' ')];
 });
 
 export default countries;
