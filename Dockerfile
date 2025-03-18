@@ -177,3 +177,11 @@ FROM lean AS ci
 COPY --chown=superset:superset --chmod=755 ./docker/*.sh /app/docker/
 
 CMD ["/app/docker/docker-ci.sh"]
+######################################################################
+# DG image...
+######################################################################
+FROM lean AS dg
+
+USER root
+RUN pip install pyhive[hive_pure_sasl] psycopg2-binary redis flask_cors
+USER superset
