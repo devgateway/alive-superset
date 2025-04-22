@@ -13,7 +13,8 @@ pipeline {
       }
       steps {
         script {
-          IMAGE_TAG = env.GIT_COMMIT.take(5)
+          COMMIT_HASH = env.GIT_COMMIT.take(5)
+          IMAGE_TAG = "4.1.1-${COMMIT_HASH}"
 
           docker.withRegistry(DOCKER_REGISTRY, "alive-registry-credentials") {
             sh "docker buildx build --push --target alive -t ${IMAGE_NAME}:${IMAGE_TAG} ."
