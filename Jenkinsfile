@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent none
 
   environment {
     IMAGE_NAME = "alive-registry.dgstg.org/alive/superset"
