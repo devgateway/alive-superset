@@ -1,5 +1,8 @@
 pipeline {
   agent none
+  options {
+    withFolderProperties()
+  }
   stages {
     stage('build and push') {
       agent {
