@@ -14,7 +14,7 @@ pipeline {
           IMAGE_TAG = "4.1.1-${COMMIT_HASH}"
 
           docker.withRegistry("https://${env.DOCKER_REGISTRY_HOSTNAME}/", "alive-registry-credentials") {
-            sh "docker buildx build --push --target alive -t ${env.DOCKER_REGISTRY_HOSTNAME}/alive/superset:${IMAGE_TAG} ."
+            sh "docker buildx build -m 4g --push --target alive -t ${env.DOCKER_REGISTRY_HOSTNAME}/alive/superset:${IMAGE_TAG} ."
           }
         }
       }
