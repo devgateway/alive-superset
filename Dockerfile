@@ -183,5 +183,5 @@ CMD ["/app/docker/docker-ci.sh"]
 FROM lean AS alive
 
 USER root
-RUN pip install pyhive[hive_pure_sasl] psycopg2-binary redis flask_cors Authlib
+RUN pip install "setuptools<82.0.0" pyhive[hive_pure_sasl] psycopg2-binary redis flask_cors Authlib
 USER superset
